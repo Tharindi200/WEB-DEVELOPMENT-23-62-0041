@@ -1,0 +1,35 @@
+CREATE TABLE Courses(
+CourseID int NOT NULL PRIMARY KEY,
+CourseName varchar(15),
+LecturerName varchar(15)
+);
+
+CREATE TABLE Students(
+StudentID int NOT NULL PRIMARY KEY,
+Name varchar(15),
+City varchar(15),
+CourseID int FOREIGN KEY REFERENCES Courses
+);
+
+INSERT INTO Courses VALUES
+(1, 'Web Development', 'M.M.Herath'),
+(2, 'Graphic Design', 'J.S.V.Piyasena'),
+(3, 'Mobile App', 'K.K.S.Dias'),
+(4, 'Java', 'U.H.S.Perera')
+
+INSERT INTO Students VALUES
+(1, 'Kasun Gamage', 'Kandy', '2'),
+(2, 'Daniel Sam', 'Jaffna', '3'),
+(3, 'Hansi Silva', 'Colombo', '1'),
+(4, 'Ranidu Herath', 'Matara', '3'),
+(5, 'Praneeth Wijesi', 'Kandy', '4'),
+(6, 'Nuwani Herath', 'Rathnapura', '1')
+
+SELECT * FROM Students;
+
+SELECT StudentID,Name,City from Students WHERE city='Kandy';
+
+UPDATE Students SET City='Galle' WHERE StudentID=4;
+
+
+
